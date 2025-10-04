@@ -46,9 +46,9 @@ Review the current changes before commit:
    - Screen reader friendly
 
 Return findings in this format:
-- ✅ Passed: [aspect]
-- ⚠️  Warning: [issue] in [file:line]
-- ❌ Critical: [issue] in [file:line]
+-  Passed: [aspect]
+-   Warning: [issue] in [file:line]
+-  Critical: [issue] in [file:line]
 
 Provide specific code examples and suggestions for fixes.
 ```
@@ -158,7 +158,7 @@ Categorize findings as:
 - 🟡 High (fix before production)
 - 🟢 Medium (fix soon)
 - 🔵 Low (nice to fix)
-- ✅ No issues found
+-  No issues found
 
 Provide specific locations and remediation steps for each issue.
 ```

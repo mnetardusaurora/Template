@@ -130,21 +130,21 @@ See: [docs/aws-amplify-secrets-setup.md](../docs/aws-amplify-secrets-setup.md)
 
 #### Authentication
 - `CLERK_PUBLISHABLE_KEY` - Clerk publishable key
-- `CLERK_SECRET_KEY` - Clerk secret key (⚠️ SENSITIVE)
-- `JWT_SECRET` - JWT signing secret (⚠️ SENSITIVE - unique per environment)
-- `REFRESH_TOKEN_SECRET` - Refresh token secret (⚠️ SENSITIVE - unique per environment)
+- `CLERK_SECRET_KEY` - Clerk secret key ( SENSITIVE)
+- `JWT_SECRET` - JWT signing secret ( SENSITIVE - unique per environment)
+- `REFRESH_TOKEN_SECRET` - Refresh token secret ( SENSITIVE - unique per environment)
 
 #### Database
-- `DATABASE_URL` - PostgreSQL connection string (⚠️ SENSITIVE)
+- `DATABASE_URL` - PostgreSQL connection string ( SENSITIVE)
 
 #### Stripe (Optional)
-- `STRIPE_SECRET_KEY` - Stripe secret key (⚠️ SENSITIVE)
+- `STRIPE_SECRET_KEY` - Stripe secret key ( SENSITIVE)
 - `STRIPE_PUBLISHABLE_KEY` - Stripe publishable key
-- `STRIPE_WEBHOOK_SECRET` - Stripe webhook secret (⚠️ SENSITIVE)
+- `STRIPE_WEBHOOK_SECRET` - Stripe webhook secret ( SENSITIVE)
 
 #### Aurora Identity (Optional)
 - `AURORA_IDENTITY_API_URL` - Aurora Identity API URL
-- `AURORA_IDENTITY_API_KEY` - Aurora Identity API key (⚠️ SENSITIVE)
+- `AURORA_IDENTITY_API_KEY` - Aurora Identity API key ( SENSITIVE)
 
 ## Security Checklist
 
@@ -171,23 +171,23 @@ See: [docs/aws-amplify-secrets-setup.md](../docs/aws-amplify-secrets-setup.md)
 
 ## What NOT to Do
 
-❌ **Never commit secrets to git**
+ **Never commit secrets to git**
 - Even in private repositories
 - Even if you delete them later (git history persists)
 
-❌ **Never share secrets via insecure channels**
+ **Never share secrets via insecure channels**
 - No email, Slack, Discord, or messaging apps
 - Use password managers or AWS Secrets Manager
 
-❌ **Never use production keys in development**
+ **Never use production keys in development**
 - Always use test/development keys locally
 - Prevents accidental production data changes
 
-❌ **Never log secrets**
+ **Never log secrets**
 - Sanitize logs before storing
 - Use environment variable masking in logs
 
-❌ **Never expose backend secrets in frontend code**
+ **Never expose backend secrets in frontend code**
 - Frontend code is publicly accessible
 - Only use publishable keys in frontend
 

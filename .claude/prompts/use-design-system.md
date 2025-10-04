@@ -369,24 +369,24 @@ When implementing UI:
 
 ## Never Do
 
-❌ Use arbitrary colors outside design system
-❌ Use font sizes smaller than 14px
-❌ Create custom spacing values (use spacing tokens)
-❌ Forget loading/error states
-❌ Skip accessibility attributes
-❌ Use form elements without labels
-❌ Rely on color alone for status
-❌ Create components without mobile consideration
+ Use arbitrary colors outside design system
+ Use font sizes smaller than 14px
+ Create custom spacing values (use spacing tokens)
+ Forget loading/error states
+ Skip accessibility attributes
+ Use form elements without labels
+ Rely on color alone for status
+ Create components without mobile consideration
 
 ## Always Do
 
-✅ Reference design-system.md before coding
-✅ Use design tokens for all values
-✅ Include proper ARIA labels
-✅ Add focus indicators to interactive elements
-✅ Pair icons with text labels
-✅ Support keyboard navigation
-✅ Respect prefers-reduced-motion
-✅ Test on multiple screen sizes
-✅ Include loading and error states
-✅ Follow established layout patterns
+ Reference design-system.md before coding
+ Use design tokens for all values
+ Include proper ARIA labels
+ Add focus indicators to interactive elements
+ Pair icons with text labels
+ Support keyboard navigation
+ Respect prefers-reduced-motion
+ Test on multiple screen sizes
+ Include loading and error states
+ Follow established layout patterns

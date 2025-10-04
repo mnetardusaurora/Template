@@ -19,7 +19,7 @@
 ### Functional Testing
 
 #### Test Case 1: [Feature Name] - Happy Path
-- **Status**: ✅ Pass / ❌ Fail / ⏸️ Blocked
+- **Status**:  Pass /  Fail /  Blocked
 - **Steps**:
   1. Navigate to feature page
   2. Enter valid data
@@ -30,7 +30,7 @@
 - **Notes**: [Any additional observations]
 
 #### Test Case 2: [Feature Name] - Error Handling
-- **Status**: ✅ Pass / ❌ Fail / ⏸️ Blocked
+- **Status**:  Pass /  Fail /  Blocked
 - **Steps**:
   1. Navigate to feature page
   2. Enter invalid data
@@ -60,28 +60,28 @@
 ### Accessibility Testing
 
 #### WCAG Compliance Check
-- **Keyboard Navigation**: ✅ Pass / ❌ Fail
-- **Screen Reader Compatibility**: ✅ Pass / ❌ Fail
-- **Color Contrast**: ✅ Pass / ❌ Fail
-- **Focus Indicators**: ✅ Pass / ❌ Fail
-- **Alt Text for Images**: ✅ Pass / ❌ Fail
+- **Keyboard Navigation**:  Pass /  Fail
+- **Screen Reader Compatibility**:  Pass /  Fail
+- **Color Contrast**:  Pass /  Fail
+- **Focus Indicators**:  Pass /  Fail
+- **Alt Text for Images**:  Pass /  Fail
 
 ### Cross-Browser Testing
 
 | Browser | Version | Status | Notes |
 |---------|---------|--------|-------|
-| Chrome  | Latest  | ✅ Pass | |
-| Firefox | Latest  | ✅ Pass | |
-| Safari  | Latest  | ❌ Fail | Minor styling issue |
-| Edge    | Latest  | ✅ Pass | |
+| Chrome  | Latest  |  Pass | |
+| Firefox | Latest  |  Pass | |
+| Safari  | Latest  |  Fail | Minor styling issue |
+| Edge    | Latest  |  Pass | |
 
 ### Mobile Testing
 
 | Device | OS | Status | Notes |
 |--------|----|---------| ------|
-| iPhone | iOS 17 | ✅ Pass | |
-| Android | Android 14 | ✅ Pass | |
-| Tablet | iPadOS | ✅ Pass | |
+| iPhone | iOS 17 |  Pass | |
+| Android | Android 14 |  Pass | |
+| Tablet | iPadOS |  Pass | |
 
 ## Bugs Found
 
@@ -133,9 +133,9 @@
 ## Regression Testing
 
 ### Previously Fixed Issues
-- [ ] Bug #123: Form validation issue - ✅ Verified Fixed
-- [ ] Bug #124: Mobile layout problem - ✅ Verified Fixed
-- [ ] Bug #125: Performance optimization - ✅ Verified Fixed
+- [ ] Bug #123: Form validation issue -  Verified Fixed
+- [ ] Bug #124: Mobile layout problem -  Verified Fixed
+- [ ] Bug #125: Performance optimization -  Verified Fixed
 
 ## Security Testing
 
@@ -168,11 +168,11 @@
 ## Sign-off
 
 ### QA Approval
-- **QA Lead**: [Name] - [Date] - ✅ Approved / ❌ Rejected
+- **QA Lead**: [Name] - [Date] -  Approved /  Rejected
 - **Comments**: [Additional notes or requirements]
 
 ### Product Owner Approval
-- **Product Owner**: [Name] - [Date] - ✅ Approved / ❌ Rejected
+- **Product Owner**: [Name] - [Date] -  Approved /  Rejected
 - **Comments**: [Feature meets acceptance criteria]
 
 ## Next Steps

@@ -444,10 +444,10 @@ Step 4: Fix Verification
 ## Tips for Effective Sub-Agent Use
 
 ### 1. Scope Appropriately
-- ✅ Use for complex, multi-file searches
-- ✅ Use for analysis requiring context from many files
-- ❌ Don't use for simple file reads (use Read tool instead)
-- ❌ Don't use for known specific locations (use Glob + Read)
+-  Use for complex, multi-file searches
+-  Use for analysis requiring context from many files
+-  Don't use for simple file reads (use Read tool instead)
+-  Don't use for known specific locations (use Glob + Read)
 
 ### 2. Iteration
 If the first sub-agent result isn't complete:
@@ -474,25 +474,25 @@ Round 3: "Show me how JWT expiration is currently handled"
 
 ## Anti-Patterns to Avoid
 
-### ❌ Using Sub-Agents for Simple Tasks
+###  Using Sub-Agents for Simple Tasks
 ```
 Bad: "Use sub-agent to read App.tsx"
 Good: Use Read tool directly
 ```
 
-### ❌ Vague Requests
+###  Vague Requests
 ```
 Bad: "Find problems in the code"
 Good: "Find all API calls missing try-catch blocks and proper error handling"
 ```
 
-### ❌ No Success Criteria
+###  No Success Criteria
 ```
 Bad: "Look at the authentication"
 Good: "Verify authentication implements these security requirements: [list]"
 ```
 
-### ❌ Too Many Simultaneous Sub-Agents
+###  Too Many Simultaneous Sub-Agents
 ```
 Bad: Launching 10 sub-agents at once
 Good: 2-3 sub-agents for truly independent tasks

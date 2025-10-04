@@ -58,9 +58,9 @@ git push origin staging
 ```
 
 **What happens automatically:**
-- ✅ CI workflow runs (lint, type-check, unit tests, E2E tests, build)
-- ✅ Security scan runs
-- ✅ AWS Amplify deploys to staging environment
+-  CI workflow runs (lint, type-check, unit tests, E2E tests, build)
+-  Security scan runs
+-  AWS Amplify deploys to staging environment
 - 📧 Team notification sent
 
 ### 3. Testing in Staging
@@ -89,20 +89,20 @@ gh pr create --base main --head staging --title "Production Release $(date +%Y-%
 ```
 
 **What happens automatically:**
-- ✅ Verifies PR is from staging branch only
-- ✅ Runs final validation tests
-- ✅ Security audit
-- ⏸️  **Requires human approval**
-- ✅ After approval: Deploys to production
-- 🏷️  Creates release tag
+-  Verifies PR is from staging branch only
+-  Runs final validation tests
+-  Security audit
+-   **Requires human approval**
+-  After approval: Deploys to production
+-   Creates release tag
 
 ### 5. Production Deployment
 
 After PR is approved and merged:
 
-- ✅ Main branch updated
-- ✅ AWS Amplify production deployment triggered
-- 🏷️ Release tag created (`release-YYYYMMDD-HHMMSS`)
+-  Main branch updated
+-  AWS Amplify production deployment triggered
+-  Release tag created (`release-YYYYMMDD-HHMMSS`)
 - 📧 Production deployment notification sent
 
 ## GitHub Actions Workflows
@@ -136,11 +136,11 @@ After PR is approved and merged:
 **Triggers**: PR to `main`
 
 **Validations**:
-1. ✅ Verifies PR source is `staging` branch
-2. ✅ Runs lint and type checks
-3. ✅ Runs all tests
-4. ✅ Runs security audit
-5. ✅ Requires human approval
+1.  Verifies PR source is `staging` branch
+2.  Runs lint and type checks
+3.  Runs all tests
+4.  Runs security audit
+5.  Requires human approval
 
 ### Deploy to Production (`.github/workflows/deploy-production.yml`)
 
@@ -165,23 +165,23 @@ Configure these in **Settings → Branches → Branch protection rules**:
 Branch name pattern: main
 
 Settings:
-✅ Require a pull request before merging
-  ✅ Require approvals: 1
-  ✅ Dismiss stale pull request approvals when new commits are pushed
-  ✅ Require review from Code Owners
-✅ Require status checks to pass before merging
-  ✅ Require branches to be up to date before merging
+ Require a pull request before merging
+   Require approvals: 1
+   Dismiss stale pull request approvals when new commits are pushed
+   Require review from Code Owners
+ Require status checks to pass before merging
+   Require branches to be up to date before merging
   Required checks:
     - verify-source-branch
     - final-validation
     - security-check
-✅ Require conversation resolution before merging
-✅ Require signed commits (recommended)
-✅ Include administrators
-✅ Restrict who can push to matching branches
+ Require conversation resolution before merging
+ Require signed commits (recommended)
+ Include administrators
+ Restrict who can push to matching branches
   - Only allow staging branch
-❌ Allow force pushes: Everyone (DISABLED)
-❌ Allow deletions (DISABLED)
+ Allow force pushes: Everyone (DISABLED)
+ Allow deletions (DISABLED)
 ```
 
 #### Staging Branch Protection
@@ -190,8 +190,8 @@ Settings:
 Branch name pattern: staging
 
 Settings:
-✅ Require status checks to pass before merging
-  ✅ Require branches to be up to date before merging
+ Require status checks to pass before merging
+   Require branches to be up to date before merging
   Required checks:
     - lint
     - type-check
@@ -199,10 +199,10 @@ Settings:
     - test-backend
     - test-e2e
     - build
-✅ Require conversation resolution before merging
-❌ Require pull request (optional - allows direct pushes)
-❌ Allow force pushes: No one
-❌ Allow deletions (DISABLED)
+ Require conversation resolution before merging
+ Require pull request (optional - allows direct pushes)
+ Allow force pushes: No one
+ Allow deletions (DISABLED)
 ```
 
 ## Required Secrets
@@ -307,7 +307,7 @@ If production deployment fails:
 
 ## Best Practices
 
-### ✅ DO
+###  DO
 - Always test in staging before production
 - Keep staging and main in sync
 - Write comprehensive tests
@@ -316,7 +316,7 @@ If production deployment fails:
 - Tag production releases
 - Monitor deployments
 
-### ❌ DON'T
+###  DON'T
 - Never push directly to main
 - Don't skip staging testing
 - Don't merge untested code to staging

@@ -14,11 +14,11 @@ AWS Amplify supports branch-specific environment variables, allowing you to use 
 
 ### Important Security Notes
 
-⚠️ **DO NOT** store secrets directly in frontend environment variables (VITE_*, REACT_APP_*, etc.)
+ **DO NOT** store secrets directly in frontend environment variables (VITE_*, REACT_APP_*, etc.)
 - Frontend build-time variables are embedded in the built JavaScript bundle
 - They are visible to anyone who inspects your frontend code
 
-✅ **DO** store secrets in:
+ **DO** store secrets in:
 - Backend environment variables (not exposed to frontend)
 - AWS Systems Manager Parameter Store (for Gen 1 apps)
 - AWS Amplify Secret Management (for Gen 2 apps)
@@ -181,7 +181,7 @@ AURORA_IDENTITY_API_KEY=YOUR_PRODUCTION_AURORA_API_KEY
 
 ## Security Best Practices
 
-### ✅ DO
+###  DO
 
 1. **Use Different Secrets Per Environment**
    - Never reuse JWT secrets between staging and production
@@ -203,7 +203,7 @@ AURORA_IDENTITY_API_KEY=YOUR_PRODUCTION_AURORA_API_KEY
    - Set up CloudWatch alerts for unusual API usage
    - Monitor Clerk and Stripe dashboards for anomalies
 
-### ❌ DON'T
+###  DON'T
 
 1. **Never Commit Secrets to Git**
    - Always use `.env.example` files as templates

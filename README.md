@@ -2,7 +2,7 @@
 
 A production-ready template for building full-stack applications with React, Node.js, TypeScript, Clerk authentication, and AWS Amplify deployment.
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **React 18+** with TypeScript
@@ -26,7 +26,7 @@ A production-ready template for building full-stack applications with React, Nod
 - **Playwright** for E2E testing
 - **Docker** for containerization
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Template/
@@ -55,7 +55,7 @@ Template/
 └── claude.md           # Project overview
 ```
 
-## 🛠️ Quick Start
+## 🛠 Quick Start
 
 ### Prerequisites
 - Node.js 20+
@@ -108,7 +108,7 @@ Template/
    npm run dev
    ```
 
-## 📚 Available Scripts
+##  Available Scripts
 
 ### Frontend
 ```bash
@@ -133,7 +133,7 @@ npm run lint         # Run ESLint
 npm run format       # Format code with Prettier
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Unit Testing
 - Frontend: Vitest with React Testing Library
@@ -163,7 +163,7 @@ The template includes JWT-based authentication with:
 - Password hashing with bcrypt
 - Protected route middleware
 
-## 🎨 UI Components
+##  UI Components
 
 Built with shadcn/ui components:
 - Fully customizable with CSS variables
@@ -171,7 +171,7 @@ Built with shadcn/ui components:
 - Dark mode support
 - Responsive design
 
-## 📖 Documentation
+##  Documentation
 
 ### Claude AI Integration
 This project includes comprehensive documentation in the `.claude/` directory to enable effective AI assistance:
@@ -183,7 +183,7 @@ This project includes comprehensive documentation in the `.claude/` directory to
 ### API Documentation
 API endpoints are documented using JSDoc comments and can be viewed at `/api/docs` when the server is running.
 
-## 🚀 Deployment
+##  Deployment
 
 ### Frontend (Netlify/Vercel)
 ```bash
@@ -206,7 +206,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -223,7 +223,7 @@ JWT_SECRET=your-secret-key
 PORT=3001
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -231,17 +231,17 @@ PORT=3001
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+##  License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+##  Support
 
 - Check the [documentation](.claude/) for detailed guides
 - Open an issue for bug reports or feature requests
 - Review the [code standards](.claude/workflows/code-standards.md) before contributing
 
-## 🎯 Next Steps
+##  Next Steps
 
 After setting up the template:
 
