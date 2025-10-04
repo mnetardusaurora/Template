@@ -1,0 +1,29 @@
+/**
+ * Aurora Nexus Theme Configurations
+ *
+ * This file contains theme-specific CSS variable overrides.
+ * Base design tokens are in design-tokens.css
+ * Global styles are in globals.css
+ */
+
+/* Currently using the default theme defined in globals.css */
+
+/*
+ * To add custom themes, define them here:
+ *
+ * Example - Brand theme:
+ * [data-theme="brand"] {
+ *   --primary: 221.2 83.2% 53.3%;
+ *   --primary-foreground: 210 40% 98%;
+ * }
+ *
+ * Example - High contrast theme:
+ * [data-theme="high-contrast"] {
+ *   --background: 0 0% 0%;
+ *   --foreground: 0 0% 100%;
+ *   --primary: 210 100% 50%;
+ * }
+ *
+ * Apply theme via data attribute:
+ * <html data-theme="brand">
+ */

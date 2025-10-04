@@ -1,0 +1,64 @@
+/**
+ * Aurora Nexus Design Tokens (CSS Variables)
+ *
+ * These design tokens are the single source of truth for the design system.
+ * All CSS variables defined in globals.css reference these values.
+ *
+ * Note: The actual CSS variables are defined in globals.css using Tailwind's
+ * @layer base directive. This file exists for organization and to provide
+ * a reference point for custom CSS that doesn't use Tailwind utilities.
+ *
+ * To use these values in custom CSS:
+ * color: hsl(var(--primary));
+ * padding: var(--spacing-4);
+ * font-size: var(--text-base);
+ */
+
+/*
+ * Color Variables (defined in globals.css):
+ * --background, --foreground
+ * --primary, --primary-foreground
+ * --secondary, --secondary-foreground
+ * --destructive, --destructive-foreground
+ * --success, --warning, --info
+ * --muted, --muted-foreground
+ * --accent, --accent-foreground
+ * --border, --input, --ring
+ *
+ * Spacing Variables (defined in globals.css):
+ * --spacing-1 through --spacing-20
+ *
+ * Typography Variables (defined in globals.css):
+ * --text-xs through --text-4xl
+ * --font-normal, --font-medium, --font-semibold, --font-bold
+ *
+ * Shadow Variables (defined in globals.css):
+ * --shadow-sm, --shadow, --shadow-md, --shadow-lg, --shadow-xl
+ *
+ * Border Radius Variables (defined in globals.css):
+ * --radius-sm, --radius-md, --radius-lg, --radius-full
+ * --radius (default: 0.5rem)
+ */
+
+/* Custom utility classes using design tokens */
+.aurora-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+@media (min-width: 768px) {
+  .aurora-container {
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .aurora-container {
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+  }
+}
