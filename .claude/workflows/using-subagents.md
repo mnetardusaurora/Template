@@ -15,7 +15,7 @@ Sub-agents are autonomous agents that can handle complex, multi-step tasks. Use 
 
 ## Available Sub-Agent Types
 
-### 1. General Purpose Agent
+### General Purpose Agent
 **When to use:**
 - Researching complex questions across the codebase
 - Finding specific code patterns or implementations
@@ -31,20 +31,266 @@ Sub-agents are autonomous agents that can handle complex, multi-step tasks. Use 
 "Investigate why users are experiencing slow page loads on the dashboard"
 ```
 
-### 2. Code Review Agent (if available)
-**When to use:**
-- After completing a significant feature
-- Before creating pull requests
-- For security review
-- Performance optimization checks
+## Specialized Agents
 
-**Example prompts:**
+This project has specialized agent configurations that provide expert guidance for specific domains. While you invoke them using the general-purpose agent in Claude Code, these configurations ensure consistent, high-quality outputs.
+
+**Location**: `.claude/agents/`
+
+**Available Specialized Agents**:
+
+### 1. Frontend Agent
+**Expertise**: React, Tailwind CSS, shadcn/ui, accessibility, performance
+**Configuration**: `.claude/agents/frontend-agent.md`
+
+**When to invoke:**
+- Building React components
+- Implementing UI/UX designs
+- Optimizing frontend performance
+- Ensuring accessibility compliance
+- Integrating APIs from frontend
+
+**Example invocation:**
 ```
-"Review the authentication flow for security vulnerabilities"
+"I need help from the Frontend Agent to create a new user profile component.
 
-"Check the new payment integration for proper error handling and edge cases"
+Task: Create UserProfile component
+Requirements:
+- Display user info (name, email, avatar)
+- Edit mode with form validation
+- Responsive design
+- Accessible (WCAG 2.1 AA)
+- Loading and error states
 
-"Review database queries for N+1 problems and suggest optimizations"
+Please follow the conventions in .claude/agents/frontend-agent.md"
+```
+
+---
+
+### 2. Backend Agent
+**Expertise**: Node.js, NestJS, Prisma, PostgreSQL, API design, authentication
+**Configuration**: `.claude/agents/backend-agent.md`
+
+**When to invoke:**
+- Creating API endpoints
+- Database schema design
+- Authentication/authorization logic
+- Third-party API integrations
+- Performance optimization
+
+**Example invocation:**
+```
+"I need help from the Backend Agent to implement a new API endpoint.
+
+Task: Create endpoint to update user profile
+Endpoint: PUT /api/users/:id
+Requirements:
+- Validate input (name, email)
+- Check authorization (user can only update own profile)
+- Update database via Prisma
+- Return updated user
+- Comprehensive error handling
+
+Please follow the conventions in .claude/agents/backend-agent.md"
+```
+
+---
+
+### 3. DevOps Agent
+**Expertise**: AWS Amplify, GitHub Actions, infrastructure, deployment, monitoring
+**Configuration**: `.claude/agents/devops-agent.md`
+
+**When to invoke:**
+- Infrastructure optimization
+- CI/CD pipeline issues
+- Deployment automation
+- Performance monitoring setup
+- Scaling analysis
+
+**Example invocation:**
+```
+"I need help from the DevOps Agent to optimize our build process.
+
+Task: Reduce CI/CD build time
+Current: 12 minutes for full pipeline
+Target: Under 7 minutes
+Focus areas:
+- Build caching
+- Parallel execution
+- Dependency optimization
+
+Please follow the conventions in .claude/agents/devops-agent.md"
+```
+
+---
+
+### 4. QA/Testing Agent
+**Expertise**: Playwright E2E, Vitest, Jest, test automation, coverage analysis
+**Configuration**: `.claude/agents/qa-testing-agent.md`
+
+**When to invoke:**
+- Writing test suites
+- Improving test coverage
+- Bug reproduction
+- Accessibility testing
+- Performance testing
+
+**Example invocation:**
+```
+"I need help from the QA/Testing Agent to create E2E tests.
+
+Task: E2E test suite for user authentication flow
+User flow:
+1. Navigate to sign-up page
+2. Fill registration form
+3. Verify email (mock)
+4. Sign in
+5. Access protected page
+
+Requirements:
+- Test happy path
+- Test validation errors
+- Test on mobile viewport
+- Accessibility checks
+
+Please follow the conventions in .claude/agents/qa-testing-agent.md"
+```
+
+---
+
+### 5. Cybersecurity Agent
+**Expertise**: Security review, vulnerability assessment, AWS security, compliance
+**Configuration**: `.claude/agents/cybersecurity-agent.md`
+
+**When to invoke:**
+- Security code reviews
+- Vulnerability assessments
+- Authentication/authorization review
+- Data protection audit
+- Compliance verification
+
+**Example invocation:**
+```
+"I need help from the Cybersecurity Agent to review authentication security.
+
+Task: Security audit of Clerk authentication integration
+Scope:
+- JWT token handling
+- Session management
+- Protected route implementation
+- Logout security
+
+Please follow the conventions in .claude/agents/cybersecurity-agent.md"
+```
+
+---
+
+### 6. Design Agent
+**Expertise**: UI/UX design, shadcn/ui, accessibility, responsive design, security UX
+**Configuration**: `.claude/agents/design-agent.md`
+
+**When to invoke:**
+- Component design specs
+- User flow design
+- Accessibility design review
+- Responsive design specifications
+- Design system updates
+
+**Example invocation:**
+```
+"I need help from the Design Agent to design a new dashboard.
+
+Task: Design security dashboard for admin users
+Purpose: Monitor system security status
+Key metrics:
+- Active threats count
+- User login activity
+- System health status
+- Recent security events
+
+Requirements:
+- Scannable layout
+- Real-time updates
+- Responsive
+- Accessible
+- Security industry UX patterns
+
+Please follow the conventions in .claude/agents/design-agent.md"
+```
+
+---
+
+### 7. Technical Writer Agent
+**Expertise**: Documentation, API docs, user guides, tutorials, Confluence
+**Configuration**: `.claude/agents/technical-writer-agent.md`
+
+**When to invoke:**
+- Writing API documentation
+- Creating user guides
+- Integration documentation
+- Architecture docs
+- Release notes
+
+**Example invocation:**
+```
+"I need help from the Technical Writer Agent to document our API.
+
+Task: Document user management API endpoints
+Endpoints: GET/POST/PUT/DELETE /api/users/*
+Audience: External developers integrating with our API
+Format: Markdown with code examples
+
+Please follow the conventions in .claude/agents/technical-writer-agent.md"
+```
+
+---
+
+## Using Specialized Agents
+
+### How to Invoke
+
+1. **Reference the agent configuration** in your prompt
+2. **Provide structured input** as defined in the agent file
+3. **Specify expected output format**
+4. **Include relevant context**
+
+### Agent Coordination
+
+For multi-agent workflows (e.g., new feature development):
+
+```
+"I'm building a new feature for user notifications.
+
+Step 1 - Design Agent: Design the notification UI component and user flow
+Step 2 - Frontend Agent: Implement the notification component
+Step 3 - Backend Agent: Create API endpoint for notifications
+Step 4 - QA/Testing Agent: Create test suite
+Step 5 - Cybersecurity Agent: Security review
+Step 6 - Technical Writer Agent: Document the feature
+Step 7 - DevOps Agent: Deploy to staging
+
+Let's start with Step 1. Please reference .claude/agents/design-agent.md for conventions."
+```
+
+### Handoffs Between Agents
+
+When one agent completes work for another:
+- Provide summary of work completed
+- List files changed
+- Specify requirements for next agent
+- Reference relevant docs/ADRs
+
+Example:
+```
+"Frontend Agent to Backend Agent handoff:
+
+Completed: UserNotification component (frontend/src/components/notifications/)
+API Requirements for Backend Agent:
+- GET /api/notifications - fetch user notifications
+- POST /api/notifications/mark-read - mark as read
+- Response format: { id, message, type, read, createdAt }
+
+Please implement following .claude/agents/backend-agent.md conventions"
 ```
 
 ## Best Practices for Sub-Agent Usage
