@@ -24,21 +24,42 @@ Complete this checklist when starting a new project from this template. Check of
 
 ## 📝 Documentation Setup
 
-### 3. Update Claude Documentation
+### 3. Understand the Agent System (CRITICAL)
+- [ ] **Read `.claude/agents/README.md`** - Understand specialized agents available
+- [ ] Review available agents:
+  - [ ] Frontend Agent - React, Tailwind, shadcn/ui development
+  - [ ] Backend Agent - NestJS, Prisma, API development
+  - [ ] DevOps Agent - AWS Amplify, CI/CD, infrastructure
+  - [ ] QA/Testing Agent - Test automation, coverage analysis
+  - [ ] Cybersecurity Agent - Security reviews, vulnerability assessment
+  - [ ] Design Agent - UI/UX, accessibility, responsive design
+  - [ ] Technical Writer Agent - Documentation, API docs
+- [ ] **Read `.claude/workflows/using-subagents.md`** - Learn how to invoke agents
+- [ ] Familiarize yourself with agent conventions (input/output formats)
+- [ ] Review code patterns in `.claude/patterns/` for reference
+
+### 4. Update Claude Documentation
 - [ ] **claude.md** - Update with project overview and specific use case
-- [ ] **.claude/context/company-context.md** - Add Aurora Nexus mission and market context
+- [ ] **.claude/context/company-context.md** - Add company mission and market context
 - [ ] **.claude/context/tech-stack.md** - Verify tech stack matches project needs
-- [ ] **.claude/context/aurora-identity-integration.md** - Configure auth flow details
+- [ ] **.claude/context/aurora-identity-integration.md** - Configure auth flow details (if applicable)
 - [ ] **.claude/context/security-requirements.md** - Add any industry-specific compliance needs
 - [ ] **.claude/context/ui-design-guide.md** - Add project-specific design guidelines
+- [ ] **.claude/context/design-system.md** - Update with your brand colors and design tokens
 
-### 4. Feature Documentation
+### 5. Feature Documentation
 - [ ] Create feature documentation in `docs/features/[feature-name]/`
 - [ ] Write `claude.md` for each major feature with:
   - [ ] User stories
   - [ ] Acceptance criteria
   - [ ] Technical specifications
 - [ ] Create `qa-feedback.md` templates for each feature
+
+### 6. Architecture Decision Records (ADRs)
+- [ ] Review ADR template at `.claude/templates/adr-template.md`
+- [ ] Create first ADR documenting why you chose this template
+- [ ] Document any architectural decisions you make in `docs/adr/`
+- [ ] Update `docs/adr/README.md` with your ADR list
 
 ---
 
@@ -316,6 +337,109 @@ Complete this checklist when starting a new project from this template. Check of
 - [ ] Monitor user feedback
 - [ ] Track GitHub Issues
 - [ ] Regular security audits
+
+---
+
+## 🤖 Working with Claude Code Agents
+
+### 33. Agent-Assisted Development (For Your Team)
+
+When working with Claude Code on this project, team members should:
+
+**Initial Setup (One-Time)**
+- [ ] Ensure team has access to Claude Code (VS Code extension or CLI)
+- [ ] Brief team on the agent system (`.claude/agents/README.md`)
+- [ ] Show examples of invoking specialized agents
+- [ ] Explain agent coordination for multi-step features
+
+**Daily Development Workflow**
+
+**Starting a New Feature**:
+1. [ ] Ask Design Agent for UI/UX specifications
+2. [ ] Ask Frontend Agent to implement components
+3. [ ] Ask Backend Agent to create API endpoints
+4. [ ] Ask QA/Testing Agent to write test suite
+5. [ ] Ask Cybersecurity Agent for security review
+6. [ ] Ask Technical Writer Agent to document the feature
+7. [ ] Ask DevOps Agent to deploy to staging
+
+**Example Agent Invocation**:
+```
+"I need help from the Frontend Agent to create a user dashboard component.
+
+Task: Create UserDashboard component
+Requirements:
+- Display user stats (notifications, activity, profile)
+- Responsive design (mobile-first)
+- Loading and error states
+- Accessible (WCAG 2.1 AA)
+- Use shadcn/ui components
+
+Please follow the conventions in .claude/agents/frontend-agent.md"
+```
+
+**Best Practices**:
+- [ ] Always reference the specific agent configuration file
+- [ ] Provide structured input (task, requirements, context)
+- [ ] Use code patterns from `.claude/patterns/`
+- [ ] Document significant decisions in ADRs
+- [ ] Use templates from `.claude/templates/` for issues
+
+**Agent Handoffs**:
+- [ ] When one agent completes work, provide handoff to next agent
+- [ ] Include: files changed, API requirements, next steps
+- [ ] Example: "Frontend Agent to Backend Agent handoff: Created UserProfile component, needs GET /api/users/:id endpoint"
+
+**Quality Checks**:
+- [ ] Frontend: Accessibility, responsive, TypeScript strict
+- [ ] Backend: Input validation, auth checks, error handling
+- [ ] Testing: >80% coverage on critical paths
+- [ ] Security: No vulnerabilities, proper auth
+- [ ] Documentation: API docs, user guides up to date
+
+---
+
+## 📖 Key Resources for Team
+
+**Agent Documentation** (`.claude/agents/`):
+- Frontend Agent, Backend Agent, DevOps Agent
+- QA/Testing Agent, Cybersecurity Agent
+- Design Agent, Technical Writer Agent
+
+**Code Patterns** (`.claude/patterns/`):
+- `frontend-patterns.md` - React components, hooks, styling
+- `backend-patterns.md` - Controllers, services, API design
+
+**Templates** (`.claude/templates/`):
+- `bug-report.md` - Structured bug reporting
+- `feature-request.md` - Feature planning
+- `security-finding.md` - Security vulnerability reporting
+- `adr-template.md` - Architecture decision records
+
+**Workflows** (`.claude/workflows/`):
+- `using-subagents.md` - How to invoke and coordinate agents
+- `development-process.md` - Development workflow
+- `testing-strategy.md` - Testing approach
+- `code-standards.md` - Code quality standards
+
+---
+
+## 🎉 You're Ready!
+
+Once you've completed the relevant sections above, your project is set up and ready for development. Remember:
+
+1. **Use the agent system** - Specialized agents provide expert guidance
+2. **Document decisions** - Use ADRs for significant architectural choices
+3. **Follow patterns** - Reference `.claude/patterns/` for consistency
+4. **Test thoroughly** - Aim for >80% coverage on critical paths
+5. **Security first** - Get Cybersecurity Agent review before deployment
+6. **Keep docs updated** - Update as you build
+
+**Questions?** Check:
+- `README.md` - Project overview
+- `claude.md` - Claude Code quick start
+- `.claude/agents/README.md` - Agent system guide
+- GitHub Discussions - Team knowledge base
 
 ---
 
