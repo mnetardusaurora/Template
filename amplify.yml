@@ -1,0 +1,87 @@
+version: 1
+applications:
+  # Frontend React Application
+  - appRoot: frontend
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    # Environment variables (configure in Amplify Console)
+    # VITE_CLERK_PUBLISHABLE_KEY
+    # VITE_API_URL
+    # VITE_USE_AURORA_IDENTITY
+
+  # Backend Node.js API
+  - appRoot: backend
+    backend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+        build:
+          commands:
+            - npm run build
+        postBuild:
+          commands:
+            - echo "Backend build completed"
+      artifacts:
+        baseDirectory: dist
+        files:
+          - '**/*'
+          - package.json
+          - node_modules/**/*
+      cache:
+        paths:
+          - node_modules/**/*
+    # Environment variables (configure in Amplify Console)
+    # DATABASE_URL
+    # CLERK_SECRET_KEY
+    # CLERK_PUBLISHABLE_KEY
+    # JWT_SECRET
+    # CORS_ORIGIN
+    # NODE_ENV
+
+# Branch-specific settings
+# NOTE: Sensitive environment variables should be configured in AWS Amplify Console
+# Go to: App Settings > Environment Variables
+# Configure branch-specific variables for staging and main branches
+branches:
+  # Production Branch
+  main:
+    environmentVariables:
+      NODE_ENV: production
+      # All other variables should be configured in Amplify Console for security:
+      # - VITE_CLERK_PUBLISHABLE_KEY (pk_live_*)
+      # - CLERK_SECRET_KEY (sk_live_*)
+      # - DATABASE_URL (production database)
+      # - STRIPE_SECRET_KEY (sk_live_*)
+      # - JWT_SECRET (unique production secret)
+      # - And all other secrets from backend/.env.example
+
+  # Staging Branch
+  staging:
+    environmentVariables:
+      NODE_ENV: staging
+      # All other variables should be configured in Amplify Console for security:
+      # - VITE_CLERK_PUBLISHABLE_KEY (pk_test_*)
+      # - CLERK_SECRET_KEY (sk_test_*)
+      # - DATABASE_URL (staging database)
+      # - STRIPE_SECRET_KEY (sk_test_*)
+      # - JWT_SECRET (unique staging secret)
+      # - And all other secrets from backend/.env.example
+
+  # Feature branches - preview deployments with development keys
+  'feature/**':
+    environmentVariables:
+      NODE_ENV: development

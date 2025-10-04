@@ -1,0 +1,13 @@
+{
+  "frontend/src/**/*.{ts,tsx}": [
+    "cd frontend && npm run lint:fix",
+    "cd frontend && npm run format"
+  ],
+  "backend/src/**/*.ts": [
+    "cd backend && npm run lint:fix",
+    "cd backend && npm run format"
+  ],
+  "*.{json,md}": [
+    "prettier --write"
+  ]
+}
