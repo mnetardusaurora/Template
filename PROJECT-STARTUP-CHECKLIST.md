@@ -18,7 +18,9 @@ Complete this checklist when starting a new project from this template. Check of
 - [ ] Clone repository to local machine
 - [ ] Update project name in `package.json` files (root, frontend, backend)
 - [ ] Update `README.md` with project-specific information
-- [ ] Set up branch protection rules on GitHub (main, staging)
+- [ ] **CRITICAL**: Read `docs/CI-CD-WORKFLOW.md` to understand the staging-first deployment workflow
+- [ ] Create `staging` branch: `git checkout -b staging && git push -u origin staging`
+- [ ] Set up branch protection rules on GitHub (see instructions below)
 
 ---
 
@@ -239,10 +241,46 @@ Complete this checklist when starting a new project from this template. Check of
 - [ ] Test critical features
 - [ ] Run tests locally: `npm run test:e2e`
 
-### 22. CI/CD Testing (Optional)
-- [ ] Set up GitHub Actions for automated testing
-- [ ] Configure test runs on pull requests
-- [ ] Set up test reporting
+### 22. CI/CD Configuration (**CRITICAL - NOT OPTIONAL**)
+
+**⚠️ Read `docs/CI-CD-WORKFLOW.md` before proceeding**
+
+#### GitHub Branch Protection
+- [ ] Configure main branch protection:
+  - [ ] Go to GitHub Settings → Branches → Add rule for `main`
+  - [ ] ✅ Require pull request before merging (1 approval minimum)
+  - [ ] ✅ Require status checks: `verify-source-branch`, `final-validation`, `security-check`
+  - [ ] ✅ Require conversation resolution
+  - [ ] ❌ **DISABLE** direct pushes to main
+  - [ ] ✅ Include administrators in restrictions
+- [ ] Configure staging branch protection:
+  - [ ] Add rule for `staging`
+  - [ ] ✅ Require status checks: `lint`, `type-check`, `test-frontend`, `test-backend`, `test-e2e`, `build`
+  - [ ] ✅ Require conversation resolution
+
+#### GitHub Secrets Configuration
+- [ ] Go to GitHub Settings → Secrets and variables → Actions
+- [ ] Add repository secrets:
+  - [ ] `AWS_ACCESS_KEY_ID` - For Amplify deployments
+  - [ ] `AWS_SECRET_ACCESS_KEY` - AWS secret key
+  - [ ] `CODECOV_TOKEN` - (Optional) For coverage reports
+  - [ ] `SLACK_WEBHOOK` - (Optional) For deployment notifications
+
+#### AWS Amplify CI/CD Setup
+- [ ] Connect staging branch to Amplify staging environment
+- [ ] Connect main branch to Amplify production environment
+- [ ] Configure automatic builds on Git push
+- [ ] Set up deployment notifications
+- [ ] Test staging deployment workflow
+
+#### Verify CI/CD Pipeline
+- [ ] Make a test commit to staging branch
+- [ ] Verify GitHub Actions runs automatically
+- [ ] Verify all tests pass
+- [ ] Verify Amplify staging deployment succeeds
+- [ ] Create test PR from staging → main
+- [ ] Verify PR requires approval and passing checks
+- [ ] Verify production deployment after merge
 
 ---
 

@@ -1,5 +1,18 @@
 # Frontend Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- All UI changes MUST be tested in staging before production
+- Read `docs/CI-CD-WORKFLOW.md` before making code changes
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The Frontend Agent specializes in React development using modern patterns, Tailwind CSS, and shadcn/ui components.

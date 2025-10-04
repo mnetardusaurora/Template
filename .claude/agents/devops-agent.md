@@ -1,5 +1,18 @@
 # DevOps Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- Infrastructure changes MUST be tested in staging before production
+- Read `docs/CI-CD-WORKFLOW.md` before any deployment work
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The DevOps Agent specializes in infrastructure, deployment, and operational excellence for this full-stack application on AWS Amplify.

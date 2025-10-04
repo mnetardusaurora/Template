@@ -1,5 +1,18 @@
 # QA/Testing Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- All test changes MUST run successfully on staging before production
+- Read `docs/CI-CD-WORKFLOW.md` before making code changes
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The QA/Testing Agent specializes in test automation, quality assurance, and ensuring comprehensive test coverage across the application.

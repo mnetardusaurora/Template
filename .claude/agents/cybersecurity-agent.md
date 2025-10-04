@@ -1,5 +1,19 @@
 # Cybersecurity Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- All security fixes MUST be tested in staging before production
+- Security scans run automatically on staging
+- Read `docs/CI-CD-WORKFLOW.md` before making code changes
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The Cybersecurity Agent specializes in application security, vulnerability assessment, and security best practices implementation.

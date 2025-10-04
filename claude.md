@@ -2,6 +2,8 @@
 
 > **IMPORTANT FOR CLAUDE CODE**: When starting work on a new project created from this template, immediately read `.claude/agents/README.md` to understand the specialized agent system. Use the appropriate specialized agents (Frontend, Backend, DevOps, QA/Testing, Cybersecurity, Design, Technical Writer) for domain-specific tasks by referencing their configuration files in `.claude/agents/`.
 
+> **CRITICAL - CI/CD WORKFLOW**: This project uses a **staging-first deployment strategy**. **NEVER push directly to main branch**. All changes must go through staging for testing first. Read `docs/CI-CD-WORKFLOW.md` immediately before making any code changes.
+
 ---
 
 ## Project Overview
@@ -124,10 +126,11 @@ Follow the comprehensive checklist in `PROJECT-STARTUP-CHECKLIST.md` which inclu
 
 **CRITICAL - Read these files first**:
 
-1. **`.claude/agents/README.md`** - Understand the agent system and how to invoke specialized agents
-2. **`.claude/context/tech-stack.md`** - Understand the complete tech stack
-3. **`.claude/context/security-requirements.md`** - Understand security requirements
-4. **`.claude/workflows/development-process.md`** - Understand development workflow
+1. **`docs/CI-CD-WORKFLOW.md`** - **MUST READ FIRST** - Understand the staging-first deployment workflow
+2. **`.claude/agents/README.md`** - Understand the agent system and how to invoke specialized agents
+3. **`.claude/context/tech-stack.md`** - Understand the complete tech stack
+4. **`.claude/context/security-requirements.md`** - Understand security requirements
+5. **`.claude/workflows/development-process.md`** - Understand development workflow
 
 **When starting a new task**:
 - Identify which specialized agent is appropriate (Frontend, Backend, DevOps, etc.)
@@ -156,6 +159,32 @@ Follow the comprehensive checklist in `PROJECT-STARTUP-CHECKLIST.md` which inclu
 
 ## Development Workflows
 
+### Git Workflow (CRITICAL - MUST FOLLOW)
+
+**⚠️ NEVER COMMIT DIRECTLY TO MAIN BRANCH ⚠️**
+
+```bash
+# 1. Create feature branch from staging
+git checkout staging
+git pull origin staging
+git checkout -b feature/your-feature-name
+
+# 2. Make changes and commit
+git add .
+git commit -m "Your commit message"
+
+# 3. Push to staging (NOT main)
+git push origin feature/your-feature-name
+# OR merge to staging directly for simple changes
+
+# 4. Tests run automatically on staging
+# 5. AWS Amplify deploys to staging environment
+# 6. After human testing/approval, create PR: staging → main
+# 7. After PR approval, main deploys to production
+```
+
+**Read `docs/CI-CD-WORKFLOW.md` for complete workflow details.**
+
 ### Starting a New Feature
 1. **Design** - Use Design Agent for UI/UX specs
 2. **Frontend** - Use Frontend Agent for React components
@@ -163,7 +192,9 @@ Follow the comprehensive checklist in `PROJECT-STARTUP-CHECKLIST.md` which inclu
 4. **Testing** - Use QA/Testing Agent for test suite
 5. **Security Review** - Use Cybersecurity Agent
 6. **Documentation** - Use Technical Writer Agent
-7. **Deploy** - Use DevOps Agent
+7. **Deploy to Staging** - Use DevOps Agent, push to staging branch
+8. **Human Testing** - Wait for approval in staging
+9. **Deploy to Production** - Create PR from staging → main
 
 See `.claude/agents/README.md` for detailed multi-agent workflows.
 
@@ -221,13 +252,55 @@ See `docs/aws-amplify-secrets-setup.md` for detailed setup.
 
 ## CI/CD Pipeline
 
-GitHub Actions workflows:
-- `.github/workflows/ci.yml` - Run tests on PRs
-- `.github/workflows/deploy-staging.yml` - Deploy to staging
-- `.github/workflows/security-scan.yml` - Security scanning
+**Workflow**: Feature Branch → Staging → Testing → Approval → Main → Production
 
-AWS Amplify configuration:
+### GitHub Actions Workflows
+
+1. **`.github/workflows/ci.yml`** - Staging Tests
+   - Triggers: Push to `staging` branch
+   - Runs: Lint, type-check, unit tests, E2E tests, build
+   - Duration: ~10-15 minutes
+
+2. **`.github/workflows/deploy-staging.yml`** - Staging Deployment
+   - Triggers: Push to `staging` branch
+   - Action: Deploy to AWS Amplify staging environment
+   - URL: `https://staging.your-app.amplifyapp.com`
+
+3. **`.github/workflows/staging-to-main.yml`** - Production Gate
+   - Triggers: PR to `main` branch
+   - Validation: Ensures PR is from `staging` branch only
+   - Runs: Final validation, security audit
+   - Requires: Human approval
+
+4. **`.github/workflows/deploy-production.yml`** - Production Deployment
+   - Triggers: Merge to `main` branch
+   - Action: Deploy to AWS Amplify production
+   - Creates: Release tag
+   - URL: `https://your-app.amplifyapp.com`
+
+5. **`.github/workflows/security-scan.yml`** - Security Scanning
+   - Triggers: All pushes
+   - Scans: Dependencies, secrets, vulnerabilities
+
+### AWS Amplify Configuration
 - `amplify.yml` - Build and deployment configuration
+- Staging branch → Staging environment
+- Main branch → Production environment
+
+### Branch Protection
+
+**Main Branch**:
+- ❌ Direct pushes: DISABLED
+- ✅ Requires PR from staging only
+- ✅ Requires human approval
+- ✅ All tests must pass
+
+**Staging Branch**:
+- ✅ Accepts feature branches
+- ✅ Requires tests to pass
+- ✅ Auto-deploys to staging environment
+
+**See `docs/CI-CD-WORKFLOW.md` for complete documentation.**
 
 ## Support & Resources
 

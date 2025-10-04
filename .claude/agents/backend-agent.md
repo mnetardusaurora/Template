@@ -1,5 +1,19 @@
 # Backend Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- All API changes MUST be tested in staging before production
+- Database migrations MUST be tested in staging first
+- Read `docs/CI-CD-WORKFLOW.md` before making code changes
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The Backend Agent specializes in Node.js/NestJS API development, database management, and AWS service integration.

@@ -2,6 +2,27 @@
 
 This directory contains specialized agent configurations for consistent, high-quality development across the project.
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**ALL AGENTS MUST FOLLOW THIS WORKFLOW:**
+
+### Git Branch Strategy
+- **NEVER commit directly to `main` branch**
+- **ALWAYS push changes to `staging` branch first**
+- Production deployments only happen after staging approval
+
+### Workflow Steps
+1. Create feature branch from `staging`
+2. Make changes and commit
+3. Push to `staging` branch (NOT main)
+4. Automated tests run on staging
+5. AWS Amplify deploys to staging environment
+6. Human testing and approval required
+7. Create PR from `staging` → `main`
+8. After PR approval, deploy to production
+
+**Read `docs/CI-CD-WORKFLOW.md` before making any code changes.**
+
 ## Available Agents
 
 ### Development Agents

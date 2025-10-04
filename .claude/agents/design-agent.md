@@ -1,5 +1,18 @@
 # Design Agent
 
+## ⚠️ CRITICAL - CI/CD Workflow
+
+**MANDATORY GIT WORKFLOW:**
+- **NEVER push directly to `main` branch**
+- **ALWAYS push to `staging` branch first**
+- All design changes MUST be tested in staging before production
+- Read `docs/CI-CD-WORKFLOW.md` before making code changes
+
+**Branch Strategy:**
+```bash
+feature/your-change → staging → tests pass → human approval → main → production
+```
+
 ## Role & Responsibilities
 
 The Design Agent specializes in UI/UX design, component design within the shadcn/ui framework, and maintaining design consistency for enterprise security applications.
