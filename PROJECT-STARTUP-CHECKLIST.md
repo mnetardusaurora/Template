@@ -1,10 +1,10 @@
-# 🚀 Project Startup Checklist
+#  Project Startup Checklist
 
 Complete this checklist when starting a new project from this template. Check off each item as you complete it.
 
 ---
 
-## 📋 Pre-Project Setup
+##  Pre-Project Setup
 
 ### 1. Project Planning
 - [ ] Define project name and description
@@ -24,7 +24,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 📝 Documentation Setup
+##  Documentation Setup
 
 ### 3. Understand the Agent System (CRITICAL)
 - [ ] **Read `.claude/agents/README.md`** - Understand specialized agents available
@@ -110,7 +110,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 🗄️ Database Setup
+##  Database Setup
 
 ### 9. Local Development Database
 - [ ] Install PostgreSQL locally (or use Docker)
@@ -132,7 +132,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## ⚙️ Environment Variables Configuration
+##  Environment Variables Configuration
 
 ### 12. Local Development Environment
 
@@ -169,7 +169,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## ☁️ AWS Amplify Setup
+## ☁ AWS Amplify Setup
 
 ### 14. Connect Repository
 - [ ] Log in to [AWS Amplify Console](https://console.aws.amazon.com/amplify/)
@@ -202,10 +202,10 @@ Complete this checklist when starting a new project from this template. Check of
 - [ ] Add all backend environment variables:
   - [ ] `NODE_ENV` = `staging`
   - [ ] `CLERK_PUBLISHABLE_KEY` = [Clerk Dev pk_test_]
-  - [ ] `CLERK_SECRET_KEY` = [Clerk Dev sk_test_] ⚠️
-  - [ ] `JWT_SECRET` = [Unique staging secret] ⚠️
-  - [ ] `REFRESH_TOKEN_SECRET` = [Unique staging secret] ⚠️
-  - [ ] `DATABASE_URL` = [Staging database URL] ⚠️
+  - [ ] `CLERK_SECRET_KEY` = [Clerk Dev sk_test_] 
+  - [ ] `JWT_SECRET` = [Unique staging secret] 
+  - [ ] `REFRESH_TOKEN_SECRET` = [Unique staging secret] 
+  - [ ] `DATABASE_URL` = [Staging database URL] 
   - [ ] `CORS_ORIGIN` = [Staging frontend URL]
   - [ ] Add Stripe, Aurora Identity, and other secrets as needed
 
@@ -228,7 +228,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 🧪 Testing Setup
+##  Testing Setup
 
 ### 20. Playwright Configuration
 - [ ] Review `playwright.config.ts`
@@ -243,20 +243,20 @@ Complete this checklist when starting a new project from this template. Check of
 
 ### 22. CI/CD Configuration (**CRITICAL - NOT OPTIONAL**)
 
-**⚠️ Read `docs/CI-CD-WORKFLOW.md` before proceeding**
+** Read `docs/CI-CD-WORKFLOW.md` before proceeding**
 
 #### GitHub Branch Protection
 - [ ] Configure main branch protection:
   - [ ] Go to GitHub Settings → Branches → Add rule for `main`
-  - [ ] ✅ Require pull request before merging (1 approval minimum)
-  - [ ] ✅ Require status checks: `verify-source-branch`, `final-validation`, `security-check`
-  - [ ] ✅ Require conversation resolution
-  - [ ] ❌ **DISABLE** direct pushes to main
-  - [ ] ✅ Include administrators in restrictions
+  - [ ]  Require pull request before merging (1 approval minimum)
+  - [ ]  Require status checks: `verify-source-branch`, `final-validation`, `security-check`
+  - [ ]  Require conversation resolution
+  - [ ]  **DISABLE** direct pushes to main
+  - [ ]  Include administrators in restrictions
 - [ ] Configure staging branch protection:
   - [ ] Add rule for `staging`
-  - [ ] ✅ Require status checks: `lint`, `type-check`, `test-frontend`, `test-backend`, `test-e2e`, `build`
-  - [ ] ✅ Require conversation resolution
+  - [ ]  Require status checks: `lint`, `type-check`, `test-frontend`, `test-backend`, `test-e2e`, `build`
+  - [ ]  Require conversation resolution
 
 #### GitHub Secrets Configuration
 - [ ] Go to GitHub Settings → Secrets and variables → Actions
@@ -284,7 +284,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 📊 Monitoring & Analytics (Optional)
+##  Monitoring & Analytics (Optional)
 
 ### 23. Error Tracking
 - [ ] Set up Sentry or similar error tracking
@@ -300,7 +300,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 🔒 Security Hardening
+##  Security Hardening
 
 ### 25. Security Review
 - [ ] Review `.gitignore` - ensure no secrets committed
@@ -317,7 +317,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 📚 Final Documentation
+##  Final Documentation
 
 ### 27. Update Project Documentation
 - [ ] Complete README.md with project-specific details
@@ -366,7 +366,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## ✅ Post-Launch
+##  Post-Launch
 
 ### 32. Maintenance
 - [ ] Set up monitoring dashboards
@@ -378,7 +378,7 @@ Complete this checklist when starting a new project from this template. Check of
 
 ---
 
-## 🤖 Working with Claude Code Agents
+##  Working with Claude Code Agents
 
 ### 33. Agent-Assisted Development (For Your Team)
 
@@ -437,7 +437,7 @@ Please follow the conventions in .claude/agents/frontend-agent.md"
 
 ---
 
-## 📖 Key Resources for Team
+##  Key Resources for Team
 
 **Agent Documentation** (`.claude/agents/`):
 - Frontend Agent, Backend Agent, DevOps Agent
@@ -462,7 +462,7 @@ Please follow the conventions in .claude/agents/frontend-agent.md"
 
 ---
 
-## 🎉 You're Ready!
+##  You're Ready!
 
 Once you've completed the relevant sections above, your project is set up and ready for development. Remember:
 
@@ -481,7 +481,7 @@ Once you've completed the relevant sections above, your project is set up and re
 
 ---
 
-## 📝 Notes & Customizations
+##  Notes & Customizations
 
 Use this section to add project-specific checklist items:
 
@@ -491,7 +491,7 @@ Use this section to add project-specific checklist items:
 
 ---
 
-## 🆘 Troubleshooting Resources
+##  Troubleshooting Resources
 
 If you encounter issues, refer to:
 
@@ -502,6 +502,6 @@ If you encounter issues, refer to:
 
 ---
 
-**🎉 Congratulations! Your project is ready to build!**
+** Congratulations! Your project is ready to build!**
 
 Keep this checklist updated as your project evolves and add any project-specific setup steps.

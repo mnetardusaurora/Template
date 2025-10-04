@@ -741,31 +741,31 @@ frontend/src/
 
 ## Anti-Patterns to Avoid
 
-❌ **Don't: Inline styles**
+ **Don't: Inline styles**
 ```tsx
 <div style={{ marginTop: '20px' }}>Bad</div>
 ```
 
-✅ **Do: Use Tailwind classes**
+ **Do: Use Tailwind classes**
 ```tsx
 <div className="mt-5">Good</div>
 ```
 
 ---
 
-❌ **Don't: Direct DOM manipulation**
+ **Don't: Direct DOM manipulation**
 ```tsx
 document.getElementById('myElement').innerHTML = 'Bad';
 ```
 
-✅ **Do: Use React state**
+ **Do: Use React state**
 ```tsx
 const [content, setContent] = useState('Good');
 ```
 
 ---
 
-❌ **Don't: Prop drilling**
+ **Don't: Prop drilling**
 ```tsx
 <Parent user={user}>
   <Child user={user}>
@@ -774,7 +774,7 @@ const [content, setContent] = useState('Good');
 </Parent>
 ```
 
-✅ **Do: Use Context**
+ **Do: Use Context**
 ```tsx
 <AuthProvider>
   <Child />
@@ -786,12 +786,12 @@ const { user } = useAuth();
 
 ---
 
-❌ **Don't: `any` types**
+ **Don't: `any` types**
 ```tsx
 function handleData(data: any) { }
 ```
 
-✅ **Do: Proper types**
+ **Do: Proper types**
 ```tsx
 interface Data {
   id: string;

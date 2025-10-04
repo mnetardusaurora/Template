@@ -161,7 +161,7 @@ Follow the comprehensive checklist in `PROJECT-STARTUP-CHECKLIST.md` which inclu
 
 ### Git Workflow (CRITICAL - MUST FOLLOW)
 
-**⚠️ NEVER COMMIT DIRECTLY TO MAIN BRANCH ⚠️**
+** NEVER COMMIT DIRECTLY TO MAIN BRANCH **
 
 ```bash
 # 1. Create feature branch from staging
@@ -171,7 +171,12 @@ git checkout -b feature/your-feature-name
 
 # 2. Make changes and commit
 git add .
-git commit -m "Your commit message"
+git commit -m "feat: Your descriptive commit message"
+
+# IMPORTANT: Follow commit message guidelines in .claude/context/commit-message-guidelines.md
+# - Use conventional commit format (feat:, fix:, docs:, etc.)
+# - Write as a professional developer would
+# - NO AI tool references, emojis, or informal language
 
 # 3. Push to staging (NOT main)
 git push origin feature/your-feature-name
@@ -290,15 +295,15 @@ See `docs/aws-amplify-secrets-setup.md` for detailed setup.
 ### Branch Protection
 
 **Main Branch**:
-- ❌ Direct pushes: DISABLED
-- ✅ Requires PR from staging only
-- ✅ Requires human approval
-- ✅ All tests must pass
+-  Direct pushes: DISABLED
+-  Requires PR from staging only
+-  Requires human approval
+-  All tests must pass
 
 **Staging Branch**:
-- ✅ Accepts feature branches
-- ✅ Requires tests to pass
-- ✅ Auto-deploys to staging environment
+-  Accepts feature branches
+-  Requires tests to pass
+-  Auto-deploys to staging environment
 
 **See `docs/CI-CD-WORKFLOW.md` for complete documentation.**
 

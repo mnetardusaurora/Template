@@ -1,6 +1,6 @@
 # Design Agent
 
-## ⚠️ CRITICAL - CI/CD Workflow
+##  CRITICAL - CI/CD Workflow
 
 **MANDATORY GIT WORKFLOW:**
 - **NEVER push directly to `main` branch**
@@ -488,7 +488,7 @@ Request:
 ```
 Good:
 ✓ Secure (green badge)
-⚠ Warning (yellow badge with details)
+ Warning (yellow badge with details)
 ✗ Critical (red badge, prominent)
 
 Use consistent colors:

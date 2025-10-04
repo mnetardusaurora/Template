@@ -2,7 +2,7 @@
 
 This directory contains specialized agent configurations for consistent, high-quality development across the project.
 
-## ⚠️ CRITICAL - CI/CD Workflow
+##  CRITICAL - CI/CD Workflow
 
 **ALL AGENTS MUST FOLLOW THIS WORKFLOW:**
 
@@ -22,6 +22,13 @@ This directory contains specialized agent configurations for consistent, high-qu
 8. After PR approval, deploy to production
 
 **Read `docs/CI-CD-WORKFLOW.md` before making any code changes.**
+
+### Commit Message Standards
+When creating commits, **ALWAYS** follow `.claude/context/commit-message-guidelines.md`:
+- Use conventional commit format (feat:, fix:, docs:, refactor:, test:, chore:)
+- Write professional, technical commit messages
+- NEVER include AI tool references, emojis, or informal language
+- Write as a human developer would write
 
 ## Available Agents
 
@@ -183,13 +190,13 @@ Follow established patterns in `.claude/patterns/`:
 ## Quality Standards
 
 All agents must ensure:
-- ✅ **TypeScript**: Strict mode, no `any` types
-- ✅ **Testing**: >80% coverage for critical paths
-- ✅ **Security**: No vulnerabilities, proper auth/validation
-- ✅ **Accessibility**: WCAG 2.1 AA compliance
-- ✅ **Performance**: Within defined budgets
-- ✅ **Documentation**: Code comments, user docs
-- ✅ **Code Review**: Follows project standards
+-  **TypeScript**: Strict mode, no `any` types
+-  **Testing**: >80% coverage for critical paths
+-  **Security**: No vulnerabilities, proper auth/validation
+-  **Accessibility**: WCAG 2.1 AA compliance
+-  **Performance**: Within defined budgets
+-  **Documentation**: Code comments, user docs
+-  **Code Review**: Follows project standards
 
 ## Best Practices for Agent Collaboration
 

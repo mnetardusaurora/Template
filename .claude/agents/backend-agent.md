@@ -1,6 +1,6 @@
 # Backend Agent
 
-## ⚠️ CRITICAL - CI/CD Workflow
+##  CRITICAL - CI/CD Workflow
 
 **MANDATORY GIT WORKFLOW:**
 - **NEVER push directly to `main` branch**

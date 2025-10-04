@@ -7,7 +7,7 @@
 
 ---
 
-## 🔒 Executive Summary
+##  Executive Summary
 
 [One sentence description of the security issue]
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 📋 Finding Details
+##  Finding Details
 
 ### Classification
 
@@ -41,7 +41,7 @@
 
 ---
 
-## 🎯 Location
+##  Location
 
 **File**: `path/to/vulnerable/file.ts:line`
 
@@ -110,7 +110,7 @@ curl -X POST https://api.example.com/endpoint \
 
 ---
 
-## 🛡️ Likelihood Assessment
+##  Likelihood Assessment
 
 **Attack Complexity**: [Low | Medium | High]
 - [Explanation of how easy it is to exploit]
@@ -128,7 +128,7 @@ curl -X POST https://api.example.com/endpoint \
 
 ---
 
-## 🔧 Remediation
+##  Remediation
 
 ### Immediate Actions (Emergency Mitigation)
 
@@ -177,7 +177,7 @@ If this needs immediate mitigation before proper fix:
 
 ---
 
-## 🧪 Testing Requirements
+##  Testing Requirements
 
 **Security Tests**:
 - [ ] Test exploit no longer works
@@ -197,7 +197,7 @@ If this needs immediate mitigation before proper fix:
 
 ---
 
-## 📅 Timeline
+##  Timeline
 
 **Disclosure**: [If external disclosure, when]
 
@@ -225,7 +225,7 @@ If this needs immediate mitigation before proper fix:
 
 ---
 
-## 📚 References
+##  References
 
 **Internal References**:
 - Related ADR: [Link]
@@ -240,7 +240,7 @@ If this needs immediate mitigation before proper fix:
 
 ---
 
-## 📝 Notes
+##  Notes
 
 **Investigation Notes**:
 [Notes from security investigation]
@@ -257,7 +257,7 @@ If this needs immediate mitigation before proper fix:
 
 ---
 
-## 🔄 Follow-up Actions
+##  Follow-up Actions
 
 - [ ] Update security training
 - [ ] Add security test to prevent regression

@@ -769,7 +769,7 @@ const envSchema = z.object({
 const parsed = envSchema.safeParse(process.env);
 
 if (!parsed.success) {
-  console.error('❌ Invalid environment variables:', parsed.error.flatten().fieldErrors);
+  console.error(' Invalid environment variables:', parsed.error.flatten().fieldErrors);
   throw new Error('Invalid environment variables');
 }
 
@@ -864,7 +864,7 @@ backend/src/
 
 ## Anti-Patterns to Avoid
 
-❌ **Don't: Business logic in controllers**
+ **Don't: Business logic in controllers**
 ```typescript
 // Bad
 async createUser(req, res) {
@@ -875,7 +875,7 @@ async createUser(req, res) {
 }
 ```
 
-✅ **Do: Business logic in services**
+ **Do: Business logic in services**
 ```typescript
 // Good
 async createUser(req, res) {
@@ -886,14 +886,14 @@ async createUser(req, res) {
 
 ---
 
-❌ **Don't: Expose internal errors**
+ **Don't: Expose internal errors**
 ```typescript
 catch (error) {
   res.status(500).json({ error: error.message });
 }
 ```
 
-✅ **Do: Use error middleware**
+ **Do: Use error middleware**
 ```typescript
 catch (error) {
   next(error);
@@ -902,12 +902,12 @@ catch (error) {
 
 ---
 
-❌ **Don't: Ignore validation**
+ **Don't: Ignore validation**
 ```typescript
 const user = await prisma.user.create({ data: req.body });
 ```
 
-✅ **Do: Validate input**
+ **Do: Validate input**
 ```typescript
 const validated = userSchema.parse(req.body);
 const user = await prisma.user.create({ data: validated });
